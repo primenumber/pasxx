@@ -28,7 +28,8 @@ EOS
       dup
     when "ROLL"
       if args.size == 3 then
-        push(args[1].to_i, args[2].to_i)
+        push(args[1].to_i)
+        push(args[2].to_i)
       end
       roll
     when "INN","INC"
