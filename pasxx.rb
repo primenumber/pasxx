@@ -72,11 +72,10 @@ def swap
 end
 
 def toggle
-  puts "SWAP"
   puts "DUP"
   roll_imm(3, 2)
   puts "DUP"
-  roll_imm(3, 1)
+  roll_imm(4, 1)
   puts <<"EOS"
 PUSH 3
 ADD
