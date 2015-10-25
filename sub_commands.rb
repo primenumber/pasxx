@@ -1,6 +1,6 @@
 # スタックの長さを1増やす
 def inc(num=1)
-  puts <<"EOS"
+  <<"EOS"
 PUSH #{num}
 ADD
 SWAP
@@ -12,7 +12,7 @@ end
 
 # スタックの長さを1減らす
 def dec(num=1)
-  puts <<"EOS"
+  <<"EOS"
 PUSH #{num}
 SUB
 SWAP
@@ -24,7 +24,7 @@ end
 
 # 即値roll
 def roll_imm(dep, rots)
-  puts <<"EOS"
+  <<"EOS"
 PUSH #{dep}
 PUSH #{rots}
 ROLL
@@ -43,8 +43,8 @@ end
 
 # 二項演算
 def bin_op(op)
-  float(2)
-  puts op
-  sink
+  float(2) +
+  op + "\n" +
+  sink +
   dec
 end

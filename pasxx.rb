@@ -1,8 +1,8 @@
 require_relative 'sub_commands'
 
 def push_impl(op)
-  puts op
-  sink
+  op + "\n" +
+  sink +
   inc
 end
 
@@ -11,29 +11,29 @@ def push(n)
 end
 
 def pop(op)
-  float
-  puts op
+  float +
+  op + "\n" +
   dec
 end
 
 def not_op
-  float
-  puts "NOT"
+  float +
+  "NOT\n" +
   sink
 end
 
 def dup
-  float
-  puts "DUP"
-  sink(2)
+  float +
+  "DUP\n" +
+  sink(2) +
   inc
 end
 
 def roll
-  float
-  puts "DUP"
-  roll_imm(4, 1)
-  puts <<"EOS"
+  float +
+  "DUP\n" +
+  roll_imm(4, 1) +
+  <<"EOS" +
 PUSH 4
 ADD
 PUSH 2
@@ -48,36 +48,36 @@ EOS
 end
 
 def halt
-  puts "HALT"
+  "HALT\n"
 end
 
 def label(word)
-  puts "LABEL #{word}"
+  "LABEL #{word}\n"
 end
 
 def jez(word)
-  dec
-  float
-  puts "JEZ #{word}"
+  dec +
+  float +
+  "JEZ #{word}\n"
 end
 
 def jmp(word)
-  puts "JMP #{word}"
+  "JMP #{word}\n"
 end
 
 def swap
-  float(2)
-  puts "SWAP"
+  float(2) +
+  "SWAP\n" +
   sink(2)
 end
 
 def toggle
-  puts "SWAP"
-  puts "DUP"
-  roll_imm(3, 2)
-  puts "DUP"
-  roll_imm(3, 1)
-  puts <<"EOS"
+  "SWAP\n" +
+  "DUP\n" +
+  roll_imm(3, 2) +
+  "DUP\n" +
+  roll_imm(3, 1) +
+  <<"EOS" +
 PUSH 3
 ADD
 PUSH 1
@@ -87,8 +87,8 @@ ADD
 SWAP
 DUP
 EOS
-  roll_imm(3, 1)
-  puts <<"EOS"
+  roll_imm(3, 1) +
+  <<"EOS"
 PUSH 1
 ADD
 ROLL
@@ -96,17 +96,17 @@ EOS
 end
 
 def size
-  puts <<"EOS"
+  <<"EOS" +
 SWAP
 DUP
 EOS
-  sink
-  puts "SWAP"
+  sink +
+  "SWAP\n" +
   inc
 end
 
 def new_stack
-  puts <<"EOS"
+  <<"EOS"
 PUSH 0
 SWAP
 PUSH 1
